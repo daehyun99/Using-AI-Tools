@@ -11,7 +11,7 @@ class Translate:
         translate(file_path: str) -> str:
             주어진 파일 경로에 해당하는 파일을 번역하여 결과 문자열을 반환한다.
     """
-    ...
+    pass
 
 # ======================================================= #
 
@@ -34,3 +34,4 @@ class PDFMathTranslate(Translate):
         translate(file_path: str) -> str:
             지정된 PDF 파일을 번역하고 결과 문자열을 반환한다.
     """
+    pass

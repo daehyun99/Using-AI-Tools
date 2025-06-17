@@ -14,3 +14,4 @@ class UserRegisterService:
             사용자 입력 데이터를 받아 등록 절차를 수행하고,
             등록된 User 객체를 반환한다.
     """
+    pass

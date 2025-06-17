@@ -25,7 +25,7 @@ class User:
         update_service_enabled(new_service_state: bool) -> None:
             서비스 활성화 상태를 변경한다.
     """
-    ...
+    pass
 
 # ======================================================= #
 
@@ -41,6 +41,7 @@ class GuestUser(User):
         - 서비스 이용 제한 있음
         - 읽기 전용 권한
     """
+    pass
 
 class StandardUser(User):
     """
@@ -54,6 +55,7 @@ class StandardUser(User):
         - ID, PW를 통해 인증 가능
         - 서비스 이용 상태 변경 가능
     """
+    pass
 
 class AdminUser(User):
     """
@@ -68,4 +70,5 @@ class AdminUser(User):
         - 운영 데이터 접근 권한
         - 권한 기반 접근 제어(RBAC) 상 상위 등급
     """
+    pass
 

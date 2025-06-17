@@ -12,7 +12,7 @@ class Register:
     Methods:
 
     """
-    ...
+    pass
 
 # ======================================================= #
 
@@ -27,6 +27,7 @@ class GuestRegister(Register):
         - 임시 사용자 생성
         - 영속성(DB 저장) 없이 메모리 기반 객체 반환 가능
     """
+    pass
 
 class StandardRegister(Register):
     """
@@ -41,6 +42,7 @@ class StandardRegister(Register):
         - 유효성 검사 포함 (중복 확인 등)
         - 생성된 객체는 UserRepository를 통해 저장
     """
+    pass
 
 class AdminRegister(Register):
     """
@@ -55,3 +57,4 @@ class AdminRegister(Register):
         - 높은 서비스 권한 부여
         - 감사 로그 및 접근 제어 연계 가능
     """
+    pass

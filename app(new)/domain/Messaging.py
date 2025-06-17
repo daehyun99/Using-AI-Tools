@@ -15,7 +15,7 @@ class Messaging:
         send() -> None:
             메시지를 전송하는 추상 메서드입니다.
     """
-    ...
+    pass
 
 # ======================================================= #
 
@@ -36,6 +36,7 @@ class Email(Messaging):
         send() -> None:
             이메일 메시지를 전송합니다.
     """
+    pass
 
 
 class KakaoAPI(Messaging):
@@ -56,3 +57,4 @@ class KakaoAPI(Messaging):
         send() -> None:
             카카오톡 메시지를 전송합니다.
     """
+    pass

@@ -14,4 +14,4 @@ class MessagingUserService:
         notify_user(user: User, messaging: Messaging) -> None:
             주어진 메시징 채널을 통해 사용자 정보를 전송한다.
     """
-    ...
+    pass

@@ -14,26 +14,26 @@ class DataObject:
         created_at (datetime): 파일의 생성 시간 정보.
     
     Method:
-        get_file_type() -> bool:
+        get_file_type() -> str:
             파일의 유형을 문자열로 반환합니다.
 
-        get_file_path(new_path: str) -> str:
+        get_file_path() -> str:
             파일의 경로를 반환합니다.
 
-        create_file(path: str) -> None:
+        create_file() -> None:
             새로운 파일을 생성합니다.
 
-        update_file(path: str) -> None:
+        update_file() -> None:
             기존의 파일을 수정합니다.
             
-        delete_file(path: str) -> None:
+        delete_file() -> None:
             파일을 삭제합니다.
     """
-    ...
+    pass
 
 # ======================================================= #
 
-class MediaFile(DatObject):
+class MediaFile(DataObject):
     """
     (추후 개발)
     멀티미디어 파일을 나타내는 추상 클래스.
@@ -49,9 +49,10 @@ class MediaFile(DatObject):
         file_path (str): 파일의 경로
         created_at (datetime): 파일 생성 시각
     """
+    pass
 
 
-class Document(DatObject):
+class Document(DataObject):
     """
     문서 파일을 나타내는 추상 클래스.
 
@@ -66,3 +67,4 @@ class Document(DatObject):
         file_path (str): 문서 파일의 경로
         created_at (datetime): 문서 객체 생성 시각
     """
+    pass

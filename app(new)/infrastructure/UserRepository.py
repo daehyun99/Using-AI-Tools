@@ -26,3 +26,4 @@ class UserRepository:
         delete_user(user: User) -> None:
             User 객체를 데이터베이스에서 삭제한다.
     """
+    pass
