@@ -38,7 +38,7 @@ class Email(Messaging):
     """
 
 
-class kakaoAPI(Messaging):
+class KakaoAPI(Messaging):
     """
     (추후 개발)
     카카오톡 API를 활용한 메시지 전송을 담당하는 Messaging의 하위 클래스.
