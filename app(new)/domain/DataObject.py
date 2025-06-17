@@ -11,7 +11,7 @@ class DatObject:
 
     Attributes:
         file_path (str): 파일의 경로.
-        create_at (datetime): 파일의 생성 시간 정보.
+        created_at (datetime): 파일의 생성 시간 정보.
     
     Method:
         get_file_type() -> bool:
