@@ -1,4 +1,6 @@
-class Translate:
+from abc import ABC, abstractmethod
+
+class Translate(ABC):
     """
     파일 번역 기능을 위한 최상위 추상 클래스.
 

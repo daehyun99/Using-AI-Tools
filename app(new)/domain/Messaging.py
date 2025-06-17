@@ -1,4 +1,6 @@
-class Messaging:
+from abc import ABC, abstractmethod
+
+class Messaging(ABC):
     """
     메시지 전송 방식의 공통 인터페이스를 정의하는 최상위 추상 클래스.
 
@@ -15,6 +17,8 @@ class Messaging:
         send() -> None:
             메시지를 전송하는 추상 메서드입니다.
     """
+    def __init__(self):
+        self._channel = None
     pass
 
 # ======================================================= #

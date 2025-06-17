@@ -1,4 +1,6 @@
-class Register:
+from abc import ABC, abstractmethod
+
+class Register(ABC):
     """
     사용자 등록을 처리하는 도메인 계층의 추상 클래스.
 

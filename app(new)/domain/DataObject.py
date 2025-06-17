@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class DataObject:
     """
     프로그램 내부 파일 관리의 최상위 객체.
@@ -29,6 +31,9 @@ class DataObject:
         delete_file() -> None:
             파일을 삭제합니다.
     """
+    def __init__(self):
+        self._file_path = None
+        self._created_at = None
     pass
 
 # ======================================================= #

@@ -25,6 +25,11 @@ class User:
         update_service_enabled(new_service_state: bool) -> None:
             서비스 활성화 상태를 변경한다.
     """
+    def __init__(self):
+        self._id = None
+        self._pw = None
+        self._email = None
+        self._service_enabled = None
     pass
 
 # ======================================================= #
