@@ -1,4 +1,4 @@
-class DatObject:
+class DataObject:
     """
     프로그램 내부 파일 관리의 최상위 객체.
 
