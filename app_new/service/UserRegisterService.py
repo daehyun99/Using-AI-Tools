@@ -11,6 +11,8 @@ class UserRegisterService:
     도메인 계층의 상태 변경은 이 계층에서 트리거되며, 트랜잭션/로깅/검증 등도
     이 계층에서 조정될 수 있다.
 
+    ## Attributes:
+
     ## Methods:
         register_user(user_input: dict) -> User:
             사용자 입력 데이터를 받아 등록 절차를 수행하고,
