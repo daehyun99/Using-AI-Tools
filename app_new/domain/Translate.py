@@ -9,10 +9,25 @@ class Translate(ABC):
 
     이 클래스를 상속받는 모든 클래스는 `translate()` 메서드를 반드시 구현해야 한다.
 
-    Methods:
+    ## Methods:
         translate(file_path: str) -> str:
-            주어진 파일 경로에 해당하는 파일을 번역하여 결과 문자열을 반환한다.
+            주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
     """
+
+    def translate(self) -> str:
+        """
+        주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
+
+        ## Paramters:
+
+        ## Return:
+            file_path -> str
+
+        ## Raise:
+
+        """
+        pass        
+
     pass
 
 # ======================================================= #
@@ -27,13 +42,13 @@ class PDFMathTranslate(Translate):
     내부적으로 라이브러리의 API를 호출하고, 결과를 후처리하여 반환한다.
     라이브러리의 업데이트에 따라 번역 품질이나 형식이 달라질 수 있다.
 
-    특징:
+    ## 특징:
         - `PDFMathTranslate`의 기능을 추상화 계층에 연결
         - 시스템 내 일관된 번역 인터페이스 제공
         - 테스트 및 대체 구현이 용이한 구조로 유지
 
-    Methods:
+    ## Methods:
         translate(file_path: str) -> str:
-            지정된 PDF 파일을 번역하고 결과 문자열을 반환한다.
+            주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
     """
     pass
