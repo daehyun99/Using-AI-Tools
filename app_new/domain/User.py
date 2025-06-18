@@ -47,7 +47,7 @@ class User:
         """
         return self._service_enabled
 
-    def update_email(self) -> None:
+    def update_email(self, new_email: str) -> None:
         """
         사용자의 이메일 주소를 변경한다.
 
@@ -64,7 +64,7 @@ class User:
         """
         pass
 
-    def update_pw(self) -> None:
+    def update_pw(self, new_pw: str) -> None:
         """
         사용자 비밀번호를 변경한다.
         
@@ -81,7 +81,7 @@ class User:
         """
         pass
 
-    def update_service_enabled(self) -> None:
+    def update_service_enabled(self, new_service_state: bool) -> None:
         """
         서비스 활성화 상태를 변경한다.
         

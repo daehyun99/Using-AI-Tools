@@ -1,4 +1,5 @@
 from app_new.domain.Messaging import Messaging
+from app_new.domain.User import User
 
 class MessagingUserService:
     """
@@ -19,7 +20,7 @@ class MessagingUserService:
     def __init__(self):
         pass
 
-    def notify_user(self, messaging: Messaging) -> None:
+    def notify_user(self, user: User, messaging: Messaging) -> None:
         """
         주어진 메시징 채널을 통해 사용자 정보를 전송한다.
 

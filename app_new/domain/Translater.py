@@ -12,7 +12,7 @@ class Translater(ABC):
     이 클래스를 상속받는 모든 클래스는 `translate()` 메서드를 반드시 구현해야 한다.
 
     ## Methods:
-        translate(file_path: str) -> str:
+        translate(document: Document) -> str:
             주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
     """
 
@@ -54,7 +54,7 @@ class PDFMathTranslate(Translater):
         - 테스트 및 대체 구현이 용이한 구조로 유지
 
     ## Methods:
-        translate(file_path: str) -> str:
+        translate(document : Document) -> str:
             주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
     """
     pass
