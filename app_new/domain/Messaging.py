@@ -19,7 +19,40 @@ class Messaging(ABC):
     """
     def __init__(self):
         self._channel = None
-    pass
+    
+    @abstractmethod
+    def info(self) -> str:
+        """
+        메시지 상태를 반환하는 추상 메서드입니다.
+
+        ## Parameters:
+
+        ## Return:
+
+        ## Raise:
+            Unknown Error(001)
+            Not Found(002)
+
+        """
+        pass
+    
+    @abstractmethod
+    def send(self) -> None:
+        """
+        메시지를 전송하는 추상 메서드입니다.
+        
+        ## Parameters:
+
+        ## Return:
+            None
+
+        ## Raise:
+            Unknown Error(001)
+            Rate Limit Exceeded(008)
+            Internal System Error(009)
+
+        """
+        return None
 
 # ======================================================= #
 
@@ -30,10 +63,10 @@ class Email(Messaging):
     SMTP 등을 통해 이메일 메시지를 전송하며, `channel` 속성은 "email"로 설정됩니다.
     이 클래스는 메시지의 상태 확인(info) 및 실제 전송(send) 메서드를 구현합니다.
 
-    Attributes:
+    ## Attributes:
         channel (str): 전송 채널. "email"로 고정.
 
-    Methods:
+    ## Methods:
         info() -> str:
             이메일 메시지 전송 상태를 반환합니다.
 
@@ -51,10 +84,10 @@ class KakaoAPI(Messaging):
     Kakao Developers API 등을 사용해 사용자에게 메시지를 전달하며,
     `channel` 속성은 "kakao"로 설정됩니다.
 
-    Attributes:
+    ## Attributes:
         channel (str): 전송 채널. "kakao"로 고정.
 
-    Methods:
+    ## Methods:
         info() -> str:
             카카오톡 메시지 전송 상태를 반환합니다.
 
