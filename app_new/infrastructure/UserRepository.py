@@ -31,54 +31,69 @@ class UserRepository:
     def __init__(self):
         pass
 
-    def save_user(self) -> None:
+    def save_user(self, user: User) -> None:
         """
         User 객체를 저장한다.
 
-        ## Paramters:
+        ## Parameters:
+            user -> User
 
         ## Return:
+            None
 
         ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
 
         """
         pass
 
-    def read_user(self) -> User:
+    def read_user(self, user: User) -> User:
         """
         식별 정보를 기반으로 User 객체를 조회한다.
 
-        ## Paramters:
+        ## Parameters:
+            user -> User : User의 일부 속성(id, pw)으로 User 객체를 조회한다.
 
         ## Return:
+            user -> User
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
         
         """
         pass
 
-    def update_user(self) -> None:
+    def update_user(self, user: User) -> None:
         """
         기존 User 정보를 수정한다.
 
-        ## Paramters:
+        ## Parameters:
+            user -> User
 
         ## Return:
+            None
 
         ## Raise:
-        
+            Unknown Error(001)
+            Not Found(002)
         """
         pass
     
-    def delete_user(self) -> None:
+    def delete_user(self, user: User) -> None:
         """
         User 객체를 데이터베이스에서 삭제한다.
 
-        ## Paramters:
+        ## Parameters:
+            user -> User
 
         ## Return:
+            None
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
         
         """
         pass

@@ -1,3 +1,5 @@
+from app_new.domain.Messaging import Messaging
+
 class MessagingUserService:
     """
     사용자 정보를 외부로 전송하는 애플리케이션 서비스.
@@ -17,15 +19,21 @@ class MessagingUserService:
     def __init__(self):
         pass
 
-    def notify_user(self) -> None:
+    def notify_user(self, messaging: Messaging) -> None:
         """
         주어진 메시징 채널을 통해 사용자 정보를 전송한다.
 
-        ## Paramters:
+        ## Parameters:
+            Messaging
 
         ## Return:
+            None
 
         ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
+            Rate Limit Exceeded(008)
+            Internal System Error(009)
 
         """
         pass

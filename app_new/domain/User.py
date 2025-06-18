@@ -35,28 +35,31 @@ class User:
         """
         현재 서비스 이용 가능 여부를 반환한다.
         
-        ## Paramters:
+        ## Parameters:
             None
 
         ## Return:
             bool
 
         ## Raise:
+            Unknown Error(001)
 
         """
-        pass
+        return self._service_enabled
 
     def update_email(self) -> None:
         """
         사용자의 이메일 주소를 변경한다.
 
-        ## Paramters:
+        ## Parameters:
             new_email -> str
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
 
         """
         pass
@@ -65,13 +68,15 @@ class User:
         """
         사용자 비밀번호를 변경한다.
         
-        ## Paramters:
+        ## Parameters:
             new_pw -> str
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
         
         """
         pass
@@ -80,13 +85,15 @@ class User:
         """
         서비스 활성화 상태를 변경한다.
         
-        ## Paramters:
+        ## Parameters:
             new_service_state -> bool
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
 
         """
         pass

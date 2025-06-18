@@ -41,13 +41,15 @@ class DataObject:
         파일의 유형을 문자열로 반환합니다.
         예: 'mp4', 'mp3', 'pdf' 등
 
-        ## Paramters:
+        ## Parameters: 
             None
 
         ## Return:
             file_type -> str
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
 
         """
         return self._file_path.split('.')[-1].lower()
@@ -56,13 +58,15 @@ class DataObject:
         """
         파일의 경로를 반환합니다.
 
-        ## Paramters:
+        ## Parameters: 
             None
 
         ## Return:
             file_path -> str
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
 
         """
         return self._file_path
@@ -71,14 +75,15 @@ class DataObject:
         """
         새로운 파일을 생성합니다.
 
-        ## Paramters:
+        ## Parameters:
             None
 
         ## Return:
             None
 
         ## Raise:
-        
+            Unknown Error(001)
+
         """
         pass
 
@@ -86,13 +91,15 @@ class DataObject:
         """
         기존의 파일을 수정합니다.
 
-        ## Paramters:
+        ## Parameters:
             None
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
         
         """
         pass
@@ -101,13 +108,15 @@ class DataObject:
         """
         파일을 삭제합니다.
 
-        ## Paramters:
+        ## Parameters:
             None
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
         
         """
         os.remove(f"{self._file_path}")

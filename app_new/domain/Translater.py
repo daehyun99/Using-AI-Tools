@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
+from app_new.domain.DataObject import Document
 
-class Translate(ABC):
+
+class Translater(ABC):
     """
     파일 번역 기능을 위한 최상위 추상 클래스.
 
@@ -14,16 +16,20 @@ class Translate(ABC):
             주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
     """
 
-    def translate(self) -> str:
+    @abstractmethod
+    def translate(self, document : Document) -> str:
         """
         주어진 파일 경로에 해당하는 파일을 번역하여 번역본 파일 경로를 반환한다.
 
-        ## Paramters:
+        ## Parameters:
+            document -> Document
 
         ## Return:
             file_path -> str
 
         ## Raise:
+            Unknown Error(001)
+            Unsupported Format(007)
 
         """
         pass        
@@ -32,7 +38,7 @@ class Translate(ABC):
 
 # ======================================================= #
 
-class PDFMathTranslate(Translate):
+class PDFMathTranslate(Translater):
     """
     `PDFMathTranslate` 라이브러리를 이용해 PDF 파일을 번역하는 Translate 하위 클래스.
 

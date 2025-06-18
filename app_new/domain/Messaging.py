@@ -20,29 +20,36 @@ class Messaging(ABC):
     def __init__(self):
         self._channel = None
     
+    @abstractmethod
     def info(self) -> str:
         """
         메시지 상태를 반환하는 추상 메서드입니다.
 
-        ## Paramters:
+        ## Parameters:
 
         ## Return:
 
         ## Raise:
+            Unknown Error(001)
+            Not Found(002)
 
         """
-        return None
+        pass
     
+    @abstractmethod
     def send(self) -> None:
         """
         메시지를 전송하는 추상 메서드입니다.
         
-        ## Paramters:
+        ## Parameters:
 
         ## Return:
             None
 
         ## Raise:
+            Unknown Error(001)
+            Rate Limit Exceeded(008)
+            Internal System Error(009)
 
         """
         return None
