@@ -49,7 +49,7 @@ class User:
 
     def update_email(self, new_email: str) -> None:
         """
-        사용자의 이메일 주소를 변경한다.
+        사용자의 이메일 주소를 최신화한다.
 
         ## Parameters:
             new_email -> str
@@ -64,9 +64,26 @@ class User:
         """
         pass
 
+    def update_id(self, new_id: str) -> None:
+        """
+        사용자 아이디를 최신화한다.
+        
+        ## Parameters:
+            new_id -> str
+
+        ## Return:
+            None
+
+        ## Raise:
+            Unknown Error(001)
+            Invalid Data(003)
+        
+        """
+        pass
+
     def update_pw(self, new_pw: str) -> None:
         """
-        사용자 비밀번호를 변경한다.
+        사용자 비밀번호를 최신화한다.
         
         ## Parameters:
             new_pw -> str
@@ -83,7 +100,7 @@ class User:
 
     def update_service_enabled(self, new_service_state: bool) -> None:
         """
-        서비스 활성화 상태를 변경한다.
+        서비스 활성화 상태를 최신화한다.
         
         ## Parameters:
             new_service_state -> bool
