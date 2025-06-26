@@ -13,14 +13,11 @@ from app_new.service.TranslateDocumentService import TranslateDocumentService
 # Domain
 from app_new.domain.DataObject import Document
 from app_new.domain.Messaging import Email
-from app_new.domain.User import StandardUser
 from app_new.domain.Translater import PDFMathTranslater
-from app_new.domain.Register import StandardRegister
-from app_new.domain.Validator import DataObjectValidator, UserValidator
+from app_new.domain.Validator import DataObjectValidator
 
-
-
-# Infrastructure
+# 의존성
+from app_new.api.deps import UserRegisterRequest
 
 # ======================================================= #
 
@@ -29,9 +26,10 @@ router = APIRouter(prefix="/v1")
 @router.post("/Message/Document/")
 async def MessaggingDocument(file: UploadFile, backgroundtasks: BackgroundTasks):
     """
-    사용자 입력을 검증합니다.
-    논문을 번역합니다.
-    번역된 논문을 전송합니다.
+    `입력 검증`, `에러 처리`, `의존성 주입` <br>
+    사용자 입력을 검증합니다. <br>
+    논문을 번역합니다. <br>
+    번역된 논문을 전송합니다. <br>
     (+) 로깅
 
     ## Parameters:
@@ -39,6 +37,8 @@ async def MessaggingDocument(file: UploadFile, backgroundtasks: BackgroundTasks)
         backgroundtasks -> BackgroundTasks
 
     ## Return:
+
+    ## Raise:
 
     """
     # Domain 객체 선언
@@ -59,35 +59,43 @@ async def MessaggingDocument(file: UploadFile, backgroundtasks: BackgroundTasks)
     return ...
 
 @router.post("/Message/User/")
-async def MessaggingUser(backgroundtasks: BackgroundTasks):
+async def MessaggingUser(
+    email: UserRegisterRequest,
+    backgroundtasks: BackgroundTasks):
     """
-    사용자 입력을 검증합니다.
-    사용자 정보를 등록합니다.
-    발급한 사용자 정보를 전송합니다.
+    `입력 검증`, `에러 처리`, `의존성 주입` <br>
+    사용자 입력을 검증합니다. <br>
+    User 등록 서비스 로직을 실행합니다. <br>
+    User 정보 전송 서비스 로직을 실행합니다. <br>
+    발급한 사용자 정보를 전송합니다. <br>
 
     ## Parameters:
+        email -> UserRegisterRequest
         backgroundtasks -> BackgroundTasks
 
     ## Return:
 
+    ## Raise:
+
     """
-    # Domain 객체 선언
-    user = StandardUser()
-    messaging = Email()
-    register = StandardRegister()
-    validator = UserValidator()
+    try:
+        ### 객체 선언 ###
+        # Domain 객체 선언
+        messaging = Email()
 
-    # Service 객체 선언
-    userregister = UserRegisterService()
-    messaginguser = MessagingUserService()
+        # Service 객체 선언
+        userregister = UserRegisterService()
+        messaginguser = MessagingUserService()
 
-    # 라우터 로직
-    validator.validate(user)
-    
+        ### 프리젠테이션 로직 ###
+        # User 등록 서비스 로직 실행
+        user = userregister.register_user(email)    
 
-    userregister.register_user(user)    
-    messaginguser.notify_user(user= user, messaging= messaging)
+        # User 정보 전송 서비스 로직 실행
+        messaginguser.notify_user(user= user, messaging= messaging)
 
-    return ...
+        return ...
+    except Exception as e:
+        return ...
 
 # ======================================================= #
