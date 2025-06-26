@@ -1,4 +1,14 @@
-class Validator:
+# ======================================================= #
+### import ###
+from abc import ABC, abstractmethod
+import re
+
+# Domain
+from app_new.domain.User import User
+
+# ======================================================= #
+
+class Validator(ABC):
     """
     주어진 객체의 속성값을 검증하는 최상위 추상 클래스.
 
@@ -13,6 +23,7 @@ class Validator:
     def __init__(self):
         pass
 
+    @abstractmethod
     def validate(self, object: any) -> bool:
         """
         주어진 객체의 속성값이 유효한지 검증한다.
@@ -45,8 +56,10 @@ class UserValidator(Validator):
         validate() -> bool:
             User 객체의 속성값이 유효한지 검증한다.
             검증 결과를 bool 형태로 반환한다.
-
     """
+    def validate(self, object: str):
+        pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+        return True if re.match(pattern, object) else False
 
 class DataObjectValidator(Validator):
     """
@@ -60,3 +73,5 @@ class DataObjectValidator(Validator):
             검증 결과를 bool 형태로 반환한다.
     
     """
+    def validate(self, object):
+        return super().validate(object)
