@@ -17,4 +17,7 @@
 ## 실행
 ```sh
 uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+
+# v1 (임시 - 코드 리팩토링)
+uvicorn app_new.main:app --host 127.0.0.1 --port 7999 --reload
 ```

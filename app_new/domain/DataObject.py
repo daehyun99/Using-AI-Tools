@@ -74,7 +74,7 @@ class DataObject:
     def create_file(self) -> None:
         """
         새로운 파일을 생성합니다.
-
+        파일 생성 후, file_type과 file_path를 설정합니다.
         ## Parameters:
             None
 

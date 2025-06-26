@@ -38,12 +38,12 @@ class Translater(ABC):
 
 # ======================================================= #
 
-class PDFMathTranslate(Translater):
+class PDFMathTranslater(Translater):
     """
-    `PDFMathTranslate` 라이브러리를 이용해 PDF 파일을 번역하는 Translate 하위 클래스.
+    `PDFMathTranslate` 라이브러리를 이용해 PDF 파일을 번역하는 Translater 하위 클래스.
 
     이 클래스는 외부 라이브러리인 `PDFMathTranslate`를 래핑하여,
-    PDF 내 텍스트를 번역하는 기능을 시스템 내부 Translate 인터페이스에 통합한다.
+    PDF 내 텍스트를 번역하는 기능을 시스템 내부 Translater 인터페이스에 통합한다.
 
     내부적으로 라이브러리의 API를 호출하고, 결과를 후처리하여 반환한다.
     라이브러리의 업데이트에 따라 번역 품질이나 형식이 달라질 수 있다.
