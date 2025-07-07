@@ -17,14 +17,17 @@ from app_new.domain.Translater import PDFMathTranslater
 from app_new.domain.Validator import DataObjectValidator
 
 # 의존성
-from app_new.api.deps import UserRegisterRequest
+from app_new.api.deps import MessaggingDocumentRequest, MessaggingUserRequest
 
 # ======================================================= #
 
 router = APIRouter(prefix="/v1")
 
 @router.post("/Message/Document/")
-async def MessaggingDocument(file: UploadFile, backgroundtasks: BackgroundTasks):
+async def MessaggingDocument(
+    file: UploadFile,
+    request: MessaggingDocumentRequest,
+    backgroundtasks: BackgroundTasks):
     """
     `입력 검증`, `에러 처리`, `의존성 주입` <br>
     사용자 입력을 검증합니다. <br>
@@ -41,26 +44,35 @@ async def MessaggingDocument(file: UploadFile, backgroundtasks: BackgroundTasks)
     ## Raise:
 
     """
-    # Domain 객체 선언
-    document = Document()
-    messaging = Email()
-    translater = PDFMathTranslater()
-    validator = DataObjectValidator()
+    try:
+        ### 객체 선언 ###
+        # Domain 객체 선언
+        document = Document()
+        messaging = Email()
+        translater = PDFMathTranslater()
+        validator = DataObjectValidator()
 
-    # Service 객체 선언
-    translatedocument = TranslateDocumentService()
-    messagingdocument = MessagingDocumentService()
-    
-    # 라우터 로직
-    document.create_file(file)
+        # Service 객체 선언
+        translatedocument = TranslateDocumentService()
+        messagingdocument = MessagingDocumentService()
+        
+        # 문서 생성 도메인 로직 실행
+        document.create_file(file)
 
-    messagingdocument.notify_document(document, messaging)    
+        ### 프리젠테이션 로직 ###
+        # 문서 번역 서비스 로직 실행
+        ...
 
-    return ...
+        # 문서 전송 서비스 로직 실행
+        messagingdocument.notify_document(document, messaging)    
+
+        return ...
+    except Exception as e:
+        return ...
 
 @router.post("/Message/User/")
 async def MessaggingUser(
-    email: UserRegisterRequest,
+    request: MessaggingUserRequest,
     backgroundtasks: BackgroundTasks):
     """
     `입력 검증`, `에러 처리`, `의존성 주입` <br>
@@ -89,7 +101,7 @@ async def MessaggingUser(
 
         ### 프리젠테이션 로직 ###
         # User 등록 서비스 로직 실행
-        user = userregister.register_user(email)    
+        user = userregister.register_user(request.email)    
 
         # User 정보 전송 서비스 로직 실행
         messaginguser.notify_user(user= user, messaging= messaging)
